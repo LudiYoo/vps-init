@@ -1,0 +1,13 @@
+*
+!.gitignore
+
+!/etc
+
+!/etc/ssh
+!/etc/ssh/sshd_config
+
+!/etc/apache2
+!/etc/apache2/sites-available
+!/etc/apache2/sites-available/vhosts-macro.conf
+!/etc/apache2/conf-available
+!/etc/apache2/conf-available/security.conf

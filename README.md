@@ -5,11 +5,12 @@ Please only use this if you know what you are doing.__
 The settings may hinder you in future developments, but ensure more security.  
 Everyone decides for himself whether and when more emphasis is placed on safety or on comfort.
 
-## VPS features you should have
- - Domain SSL permanently included
- - Snapshots
- - Free Product Switch (switchable / upgradable OS)
+## VPS features you should look for
  - IPv6
+ - Snapshots
+ - CAA Support
+ - Domain SSL permanently included
+ - Free Product Switch (switchable / upgradable OS)
  - Repair Mode (Starts minimal system with ssh access and mount your system)
 
 ## Keep your vps up2date
@@ -188,6 +189,18 @@ systemctl restart apache2
 
 If everything works, its a good time to save your current settings in a git commit.
 
+#### Increase SSL Security
+
+Edit [ssl.conf](server/etc/apache2/mods-available/ssl.conf)
+
+```shell script
+Enable SSLHonorCipherOrder on
+```
+
+```shell script
+# Disable all weak ciphers
+SSLCipherSuite HIGH:!aNULL:!MD5:!3DES:!ARIA:!CAMELLIA:!AES256-SHA:!AES256-SHA256:!AES256-GCM-SHA384:!AES256-CCM8:!AES256-CCM:!DHE-RSA-AES256-SHA:!DHE-RSA-AES256-SHA256:!ECDHE-RSA-AES256-SHA384:!ECDHE-RSA-AES256-SHA:!RSA:!ECDHE-RSA-AES128-SHA256:!ECDHE-RSA-AES128-SHA:!DHE-RSA-AES128-SHA256:!DHE-RSA-AES128-SHA
+```
+
 ## Check your server
 https://observatory.mozilla.org/
-
